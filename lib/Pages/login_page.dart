@@ -11,7 +11,7 @@ class _LoginPageState extends State<LoginPage> {       //underscore means privat
   String name = "";
   bool changeButton = false;
   final _formkey = GlobalKey<FormState>(); 
-       // want to access some properties in form first give key to it
+       // want to access some properties in form first give key to it , then add a textformfield with validation,create button
   moveToHome(BuildContext context) async {
     if(_formkey.currentState!. validate()) {
       

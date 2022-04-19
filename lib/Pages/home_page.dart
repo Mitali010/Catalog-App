@@ -1,3 +1,4 @@
+import 'package:catalog_app/widgets/Drawer.dart';
 import 'package:flutter/material.dart';
 class Homepage extends StatelessWidget {
   final int days = 30;
@@ -17,7 +18,7 @@ class Homepage extends StatelessWidget {
           child: const Text("welcome 30 days of flutter"),
         ),
       ),
-      drawer: const Drawer(),
+      drawer: const MyDrawer(),
     );
     
     
