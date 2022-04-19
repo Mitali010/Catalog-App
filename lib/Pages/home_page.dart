@@ -8,16 +8,16 @@ class Homepage extends StatelessWidget {
     
     return Scaffold(
       appBar: AppBar(
-        title: Text("Catalog App"),
+        title: const Text("Catalog App"),
         
       ),
       
       body: Center(
         child: Container(
-          child: Text("welcome 30 days of flutter"),
+          child: const Text("welcome 30 days of flutter"),
         ),
       ),
-      drawer: Drawer(),
+      drawer: const Drawer(),
     );
     
     
