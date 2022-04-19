@@ -9,7 +9,7 @@ class MyDrawer extends StatelessWidget {
     final ImageUrl = "https://media-exp1.licdn.com/dms/image/C4E03AQHJIcf5rM4rkA/profile-displayphoto-shrink_200_200/0/1631518611667?e=1655942400&v=beta&t=r94TBPjece9gU0pdeuc5EnLEj2_OtOGaqLik3D6ON9c";
     return Drawer( 
       child: Container(
-        color: Colors.blueAccent,
+        color: Colors.blue,
         child: ListView(        //it display of widgets one after another in scroll view in drawer
           padding: EdgeInsets.zero,  
           children:  [

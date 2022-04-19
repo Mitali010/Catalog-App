@@ -1,14 +1,15 @@
 
 import 'package:catalog_app/Pages/login_page.dart';
 import 'package:catalog_app/utils/routes.dart';
+import 'widgets/Themes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'Pages/home_page.dart';
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 class MyApp extends StatelessWidget {
-  
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +17,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       
       themeMode: ThemeMode.light,
-      theme: ThemeData(primarySwatch: Colors.blue,
-      fontFamily: GoogleFonts.lato().fontFamily
-      ),
-      darkTheme: ThemeData(brightness: Brightness.dark),
+      theme: MyTheme.lightTheme(context),
+      darkTheme: MyTheme.darkTheme(context),
       debugShowCheckedModeBanner: false,
 
       routes: {
