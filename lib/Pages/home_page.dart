@@ -36,11 +36,45 @@ class _HomepageState extends State<Homepage> {
       
       body: Padding(
         padding: const EdgeInsets.all(18.0),
-        child: (CatalogModel.items!= null && CatalogModel.items.isNotEmpty)? ListView.builder(              // listbuilder is used to render the element in screen one by one in scrollable view 
+        child: (CatalogModel.items!= null && CatalogModel.items.isNotEmpty)
+        // gridview is a row having multiple items
+        ? GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,        // items in row
+            mainAxisSpacing: 16,      // vertical spacing between 2 cards
+            crossAxisSpacing: 16,
+            ),      //griddelegate tell how many items are in single row
+          itemBuilder: (context, index) {
+            final item = CatalogModel.items[index];
+             return Card (
+               clipBehavior: Clip.antiAlias,
+               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+               child: GridTile(
+                 header: Container(child: Text(item.name,
+                 style:  TextStyle(color: Colors.white),
+                 ),
+                 padding: const EdgeInsets.all(12),
+                 decoration: const BoxDecoration(
+                 color: Colors.blue,
+                 )),
+                 child: Image.network(item.image),
+                 footer: Container(child: Text(item.price.toString(),
+                 style:  TextStyle(color: Colors.white),
+                 ),
+                 padding: const EdgeInsets.all(12),
+                 decoration: const BoxDecoration(
+                 color: Colors.black,
+                 )),
+                 
+                 ));
+          },
           itemCount: CatalogModel.items.length,
-          itemBuilder: (context, index) =>
-             ItemWidget(item: CatalogModel.items[index]) 
-        ) 
+          )   
+        //ListView.builder(              // listbuilder is used to render the element in screen one by one in scrollable view 
+          //itemCount: CatalogModel.items.length,
+          //itemBuilder: (context, index) =>
+             //ItemWidget(item: CatalogModel.items[index]) 
+       // ) 
         :const Center(
           child: CircularProgressIndicator(),
         )
