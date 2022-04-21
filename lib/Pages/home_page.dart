@@ -1,13 +1,16 @@
-import 'dart:html';
-
 import 'package:catalog_app/models/catalog.dart';
 import 'package:catalog_app/widgets/Themes.dart';
-import 'package:catalog_app/widgets/drawer.dart';
-import 'package:catalog_app/widgets/item_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:velocity_x/velocity_x.dart';
+
+import '../widgets/home_widgets/catalog_header.dart';
+import '../widgets/home_widgets/catalog_list.dart';
+
+
+
+
 class Homepage extends StatefulWidget {
   @override
   State<Homepage> createState() => _HomepageState();
@@ -46,9 +49,10 @@ class _HomepageState extends State<Homepage> {
             children:  [
               const CatalogHeader() ,
               if(CatalogModel.items != null && CatalogModel.items.isNotEmpty)  
-                CatalogList().expand()
+                 CatalogList().py16().expand()
               else 
-              const Center(child: CircularProgressIndicator(),)    
+               const CircularProgressIndicator().centered().expand(),
+                   
             ],
           ),
         ),
@@ -58,89 +62,11 @@ class _HomepageState extends State<Homepage> {
 
  
         
-      class CatalogHeader extends StatelessWidget {
-      const CatalogHeader({ Key? key }) : super(key: key);
-    
-      @override
-      Widget build(BuildContext context) {
-        return Column(
-
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              "Catalog App".text.xl5.bold.color(MyTheme.darkbluishColor).make(),          //Text("Catalog App"), both are same
-               "Trending Products".text.xl2.make(),      //xl2 is size
-            ],
-        );
-      }
-      }
-      class CatalogList extends StatelessWidget {
-        const CatalogList({ Key? key }) : super(key: key);
       
-        @override
-        Widget build(BuildContext context) {
-          return ListView.builder(
-            shrinkWrap: true,
-            itemCount: CatalogModel.items.length,
-            itemBuilder: (context, index) {
-              final catalog = CatalogModel.items[index];
-              return CatalogItem(catalog:catalog);
-            }
-          );
-        }
-      }
-      class CatalogItem extends StatelessWidget {
-        final Item catalog;
-        const CatalogItem({Key? key, required this.catalog }) : assert(catalog!= null),super(key: key);
+     
       
-        @override
-        Widget build(BuildContext context) {
-          return VxBox(
-            child: Row(
-              children: [
-                CatalogImage(image:catalog.image,
-                ),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [catalog.name.text.lg.color(MyTheme.darkbluishColor).bold.make(),    //lg is size
-                    catalog.desc.text.coolGray500.make(),
-                    10.heightBox,         // sizedbox
-                    ButtonBar(
-                      alignment: MainAxisAlignment.spaceBetween,
-                      buttonPadding: Vx.mOnly(right: 30),                 //monly means choose padding right or left
-                      children: [
-                        "\$${catalog.price}".text.bold.xl.make(),
-                        ElevatedButton(onPressed: (){}, 
-                        style: ButtonStyle(backgroundColor: MaterialStateProperty.all(MyTheme.darkbluishColor)),
-                        child: "Buy".text.make()
-                        ),
-                      ],
-                    ) //.pOnly(right:8.0)
-                    ],
-                  ),
-                )
-              ]
-            )
-          ).white.roundedSM.square(150).make().py16();
-                   // py is padding vertically between cards    // rounded sm means round card in small size
-          
-        }
-      }
       
-      class CatalogImage extends StatelessWidget {
-        final String image;
-        const CatalogImage({ Key? key, required this.image }) :assert(image != null), super(key: key);
       
-        @override
-        Widget build(BuildContext context){
-
-          return Image.network(
-            image,
-              ).box.p8.roundedSM.color(MyTheme.creamColor).make().p16().w32(context);    
-                    // box make means put image in box         // w is width
-        }
-      }
     
     
 
