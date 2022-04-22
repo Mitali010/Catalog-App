@@ -1,6 +1,5 @@
 import 'package:catalog_app/models/catalog.dart';
 import 'package:catalog_app/utils/routes.dart';
-import 'package:catalog_app/widgets/Themes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,6 +13,8 @@ import '../widgets/home_widgets/catalog_list.dart';
 
 
 class Homepage extends StatefulWidget {
+  const Homepage({Key? key}) : super(key: key);
+
   @override
   State<Homepage> createState() => _HomepageState();
 }
@@ -42,12 +43,12 @@ class _HomepageState extends State<Homepage> {
         //title: const Text("Catalog App"),
         
       //),
+      backgroundColor: context.theme.backgroundColor,
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
-      backgroundColor: MyTheme.darkbluishColor,
-      child: const Icon(CupertinoIcons.cart),
+        backgroundColor: context.theme.buttonColor,
+        child: const Icon(CupertinoIcons.cart,color: Colors.white,),
       ),
-      backgroundColor: MyTheme.creamColor,
       body: SafeArea(
         child: Container(
           padding: Vx.m32,
@@ -56,7 +57,7 @@ class _HomepageState extends State<Homepage> {
             children:  [
               const CatalogHeader() ,
               if(CatalogModel.items != null && CatalogModel.items.isNotEmpty)  
-                 CatalogList().py16().expand()
+                 const CatalogList().py16().expand()
               else 
                const CircularProgressIndicator().centered().expand(),
                    
