@@ -32,8 +32,8 @@ class HomeDetailPage extends StatelessWidget {
                     //const StadiumBorder(),
                   //)
                   ),
-              child: "Buy".text.make(),
-            ).wh(100, 50)
+              child: "Add to cart".text.make(),
+            ).wh(120, 50)
           ],
         ).p32(),   
       ),
@@ -61,14 +61,24 @@ class HomeDetailPage extends StatelessWidget {
                         .make(),
                     catalog.desc.text.color(Colors.grey).make(),
                     10.heightBox,        //heightbox is sizedbox
+                   "Amet sit no gubergren est eirmod gubergren justo dolor amet ipsum. Justo sea sed amet takimata et voluptua accusam,  lorem clita amet gubergren aliquyam diam, no amet et et et, amet duo takimata lorem eos dolor dolor sea. No magna no sed erat ipsum, no ut lorem diam aliquyam kasd vero amet stet, voluptua no dolor gubergren et amet sed.."
+                   .text
+                   .color(Colors.grey)
+                   .make()
+                   .p16()
+                    
                   ],
-                ).py64(),    //padding b/w arc and name
+                   ).py64(),
+                  ),
+                  
+                ))   //padding b/w arc and name
+                  ],
               ),
-            ))
-          ],
-        ),
-      ),
-    );
+            ),
+            );
+          
+        
+      
   }
 }
 

@@ -1,5 +1,7 @@
 import 'package:catalog_app/models/catalog.dart';
+import 'package:catalog_app/utils/routes.dart';
 import 'package:catalog_app/widgets/Themes.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
@@ -40,6 +42,11 @@ class _HomepageState extends State<Homepage> {
         //title: const Text("Catalog App"),
         
       //),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
+      backgroundColor: MyTheme.darkbluishColor,
+      child: const Icon(CupertinoIcons.cart),
+      ),
       backgroundColor: MyTheme.creamColor,
       body: SafeArea(
         child: Container(
