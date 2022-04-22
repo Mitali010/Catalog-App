@@ -1,5 +1,7 @@
 
 
+// ignore_for_file: deprecated_member_use, duplicate_ignore
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -20,20 +22,23 @@ class MyTheme {
         textTheme: Theme.of(context).textTheme,
       ));
 
+  // ignore: duplicate_ignore
   static ThemeData darkTheme(BuildContext context) => ThemeData(
       brightness: Brightness.dark,
       backgroundColor: darkCreamColor,
       fontFamily: GoogleFonts.poppins().fontFamily,
       cardColor: Colors.black,
       canvasColor: darkCreamColor,
+      // ignore: deprecated_member_use
       buttonColor: Colors.blue,
+      // ignore: deprecated_member_use
       accentColor: Colors.white,
       appBarTheme: AppBarTheme(
         color: Colors.black,
         elevation: 0.0,
         iconTheme: const IconThemeData(color: Colors.white),
         textTheme: Theme.of(context).textTheme.copyWith(
-          headline6: context.textTheme.headline6?.copyWith(color: Colors.white)
+          headline6: context.textTheme.headline6?.copyWith(color: Colors.white)   // h6 used to change in cart page
         ),
     
             ),
