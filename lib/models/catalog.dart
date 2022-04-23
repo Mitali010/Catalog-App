@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 class CatalogModel {
-  static final catModel = CatalogModel.internal();     // singleton class
-  CatalogModel.internal();
-  factory CatalogModel() => catModel;
+  //static final catModel = CatalogModel.internal();     // singleton class
+  //CatalogModel.internal();
+  //factory CatalogModel() => catModel;
    static List<Item> items =[];
 
   set catalog(CatalogModel catalog) {}

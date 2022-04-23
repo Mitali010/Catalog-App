@@ -2,13 +2,13 @@ import 'package:catalog_app/models/catalog.dart';
 
 class CartModel{
 
-  static final cartModel = CartModel.internal();     // singleton class
-  CartModel.internal();
-  factory CartModel() => cartModel;
+  //static final cartModel = CartModel.internal();     // singleton class
+  //CartModel.internal();
+  //factory CartModel() => cartModel;
   // catalog field
-   late CatalogModel _catalog;
+    late CatalogModel _catalog;
   // collections of ids - store ids of each items
-  final List <int> _itemIds = [];
+   final List <int> _itemIds = [];
    // get catalog
    CatalogModel get catalog => _catalog;
    // set catalog
