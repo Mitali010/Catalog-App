@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class CartPage extends StatelessWidget {
+  const CartPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +18,7 @@ class CartPage extends StatelessWidget {
       body: Column(
         children: [
           _CartList().p32().expand(),
-          Divider(),
+          const Divider(),
           _CartTotal(),
         ],
       ),
@@ -37,6 +39,7 @@ class _CartTotal extends StatelessWidget {
           "\$${_cart.totalPrice}"
           .text
           .xl5
+          // ignore: deprecated_member_use
           .color(context.theme.accentColor)
           .make(),30.widthBox,
           ElevatedButton(
@@ -47,6 +50,7 @@ class _CartTotal extends StatelessWidget {
             },
             style: ButtonStyle(
                 backgroundColor:
+                    // ignore: deprecated_member_use
                     MaterialStateProperty.all(context.theme.buttonColor)),
             child: "Buy".text.white.make(),
           ).w32(context)
@@ -66,9 +70,9 @@ class _CartList extends StatelessWidget {
         : ListView.builder(
             itemCount: _cart.items.length,
             itemBuilder: (context, index) => ListTile(
-              leading: Icon(Icons.done),
+              leading: const Icon(Icons.done),
               trailing: IconButton(
-                icon: Icon(Icons.remove_circle_outline),
+                icon: const Icon(Icons.remove_circle_outline),
                 onPressed: () {
                   RemoveMutation(_cart.items[index]);
                   // setState(() {});

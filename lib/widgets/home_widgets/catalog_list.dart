@@ -10,7 +10,9 @@ class CatalogList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return ListView.builder(
+      //gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
       shrinkWrap: true,
       itemCount: CatalogModel.items.length,
       itemBuilder: (context, index) {
@@ -28,6 +30,7 @@ class CatalogList extends StatelessWidget {
         );
       },
     );
+    
   }
 }
 

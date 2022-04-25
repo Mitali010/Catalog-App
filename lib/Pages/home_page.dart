@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:catalog_app/core/store.dart';
 import 'package:catalog_app/models/cart.dart';
 import 'package:catalog_app/models/catalog.dart';
@@ -12,10 +10,6 @@ import 'package:velocity_x/velocity_x.dart';
 import '../widgets/home_widgets/catalog_header.dart';
 import '../widgets/home_widgets/catalog_list.dart';
 //import 'package:http/http.dart' as http;
-
-
-
-
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -59,6 +53,7 @@ class _HomepageState extends State<Homepage> {
       floatingActionButton: FloatingActionButton(
         
         onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
+        // ignore: deprecated_member_use
         backgroundColor: context.theme.buttonColor,
         child: const Icon(CupertinoIcons.cart,color: Colors.white,),
       ).badge(color: Vx.red300, size: 20,count: _cart.items.length),

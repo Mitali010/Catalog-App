@@ -6,7 +6,9 @@ import 'package:velocity_x/velocity_x.dart';
 import 'widgets/Themes.dart';
 import 'package:flutter/material.dart';
 import 'Pages/home_page.dart';
+import 'package:url_strategy/url_strategy.dart';
 void main() {
+  setPathUrlStrategy();
   runApp(VxState( store: MyStore(), child:  const MyApp()));
 }
 class MyApp extends StatelessWidget {
@@ -21,12 +23,16 @@ class MyApp extends StatelessWidget {
       theme: MyTheme.lightTheme(context),
       darkTheme: MyTheme.darkTheme(context),
       debugShowCheckedModeBanner: false,
-
+    
+        //"/": (_, __) =>MaterialPage(child: LoginPage()),
+        //MyRoutes.homeRoute: (_, __) => MaterialPage(child: Homepage()),
+        //MyRoutes.homeRoute: (_, __) => MaterialPage(child: LoginPage()),
+        //MyRoutes.homeRoute: (_, __) => MaterialPage(child: CartPage()),
       routes: {
-        "/": (context) => LoginPage(),
+        "/": (context) => const LoginPage(),
         MyRoutes.homeRoute:(context) => const Homepage(),
-        MyRoutes.loginRoute: (context) => LoginPage(),
-        MyRoutes.cartRoute: (context) =>  CartPage(),
+        MyRoutes.loginRoute: (context) =>const  LoginPage(),
+        MyRoutes.cartRoute: (context) =>  const CartPage(),
         
       },
     );

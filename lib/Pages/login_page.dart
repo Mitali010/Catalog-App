@@ -1,7 +1,9 @@
 import 'package:catalog_app/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
-class LoginPage extends StatefulWidget {      // when we want to change in current screen
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
+      // when we want to change in current screen
   
 
   @override
@@ -21,6 +23,7 @@ class _LoginPageState extends State<LoginPage> {       //underscore means privat
     });
     await Future.delayed(const Duration(seconds: 1));
     await Navigator.pushNamed(context, MyRoutes.homeRoute);
+    
       setState(() {
         changeButton = false;
       });
@@ -89,6 +92,7 @@ class _LoginPageState extends State<LoginPage> {       //underscore means privat
                         ),
                       const SizedBox(height: 40.0),
                       Material(
+                        // ignore: deprecated_member_use
                         color: context.theme.buttonColor,      
                         borderRadius:
                             BorderRadius.circular(changeButton? 50:8),

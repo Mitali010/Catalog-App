@@ -6,7 +6,7 @@ class MyDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ImageUrl = "https://media-exp1.licdn.com/dms/image/C4E03AQHJIcf5rM4rkA/profile-displayphoto-shrink_200_200/0/1631518611667?e=1655942400&v=beta&t=r94TBPjece9gU0pdeuc5EnLEj2_OtOGaqLik3D6ON9c";
+    final Imageurl = "https://media-exp1.licdn.com/dms/image/C4E03AQHJIcf5rM4rkA/profile-displayphoto-shrink_200_200/0/1631518611667?e=1655942400&v=beta&t=r94TBPjece9gU0pdeuc5EnLEj2_OtOGaqLik3D6ON9c";
     return Drawer( 
       child: Container(
         color: Colors.blue,
@@ -20,7 +20,7 @@ class MyDrawer extends StatelessWidget {
                 accountName: const Text("Mitali"),
                 accountEmail:  const Text("mitalij194@gmail.com"),
                 currentAccountPicture: CircleAvatar(
-                  backgroundImage: NetworkImage(ImageUrl),
+                  backgroundImage: NetworkImage(Imageurl),
                   ),
               ),
           ),

@@ -7,7 +7,7 @@ import 'package:velocity_x/velocity_x.dart';
 
 class AddToCart extends StatelessWidget {
   final Item catalog;
-   AddToCart({
+   const AddToCart({
      Key ? key, required this.catalog
   }) : super(key: key);
   
@@ -26,12 +26,13 @@ class AddToCart extends StatelessWidget {
         }
       },
       style: ButtonStyle(
+          // ignore: deprecated_member_use
           backgroundColor: MaterialStateProperty.all(context.theme.buttonColor),
           //shape: MaterialStateProperty.all(
             //StadiumBorder(),
           //)
           ),
-      child: isInCart ? Icon(Icons.done) : Icon(CupertinoIcons.cart_badge_plus),
+      child: isInCart ? const Icon(Icons.done) : const Icon(CupertinoIcons.cart_badge_plus),
     );
   }
 }
